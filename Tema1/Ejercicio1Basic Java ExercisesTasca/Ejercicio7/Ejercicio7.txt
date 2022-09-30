@@ -1,0 +1,8 @@
+Exercise 7
+Why is this code needed?
+
+Reader reader = null;
+try(reader = new FileReader("file.txt")) {
+}catch(IOException ex){
+
+}
