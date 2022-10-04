@@ -9,7 +9,7 @@ public class Comparador implements  Relaciones{
 
     @Override
     public boolean esMayor(Object b) {
-        if (this.entero > ) {
+        if (this.entero > 2) {
             return true;
         }
         return false;
