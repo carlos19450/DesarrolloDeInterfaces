@@ -9,9 +9,10 @@
       <sourceFolder url="file://$MODULE_DIR$/Tema1/Ejercicio1Basic Java ExercisesTasca/Ejercicio4" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Tema1/Ejercicio1Basic Java ExercisesTasca/Ejercicio5" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Tema1/Ejercicio1Basic Java ExercisesTasca/Ejercicio6" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Tema2/EjercicioSwing/Ejercicio1" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Tema2/Ejemplos" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Tema2/Ejercicio2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tema2/Ejercicio3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tema2/Ejercicio3/Ejercicio1" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

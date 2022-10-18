@@ -8,7 +8,6 @@ public class Ejercicio2_4 extends JFrame {
     private TextField tf2 = new TextField(10);
     private final JButton boton1 = new JButton("Celsius -> Farenheit");
     private final JButton boton2 = new JButton("Farenheit -> Celsius");
-
     private final JButton botonSalir = new JButton("Salir");
     public Ejercicio2_4 () {
         getContentPane();
