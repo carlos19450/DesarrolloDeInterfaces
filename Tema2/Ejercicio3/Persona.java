@@ -3,13 +3,12 @@ import java.time.LocalDate;
 
 public class Persona implements Serializable {
     private static final long serialVersionUID = 100L;
-    String nombre, mail;
-    LocalDate annoNacimiento;
+    String nombre, mail, annoNacimiento;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String mail, LocalDate annoNacimiento) {
+    public Persona(String nombre, String mail, String annoNacimiento) {
         this.nombre = nombre;
         this.mail = mail;
         this.annoNacimiento = annoNacimiento;
@@ -17,6 +16,14 @@ public class Persona implements Serializable {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public String getAnnoNacimiento() {
+        return annoNacimiento;
     }
 
     public void escribir() {
