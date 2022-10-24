@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AgendaPrincipal  extends JFrame{
-    JFrame frame1 = new JFrame("Añadir personas"), frame2 = new JFrame("Buscar personas"), frame3 = new JFrame("Mostrar personas");
+    private JFrame frame1 = new JFrame("Añadir personas"), frame2 = new JFrame("Buscar personas"), frame3 = new JFrame("Mostrar personas");
     private Persona person;
     private Path personaFichero = Path.of("C:\\Users\\carlo\\Desktop\\personas.dat");
     private List<Persona> listaPersonas = new ArrayList<>();
