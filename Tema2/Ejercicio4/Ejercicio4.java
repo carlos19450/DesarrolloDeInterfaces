@@ -3,6 +3,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.file.Path;
+import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Ejercicio4 extends JFrame {
     private Path personaFichero = Path.of("/home/carpui/Escritorio/formulario.txt");
@@ -10,6 +13,7 @@ public class Ejercicio4 extends JFrame {
     private JLabel jLnombre = new JLabel("Nombre"), jLapellidos = new JLabel("Apellidos"), jLtelefono = new JLabel("Numero de telefono"), jLdni = new JLabel("DNI"), jLdireccion = new JLabel("Dirección"), jLcodPostal = new JLabel("Codigo Postal"), jLciudad = new JLabel("Ciudad"), jLnumFederado = new JLabel("Numero de Federado"), jLpassword = new JLabel("Contraseña"), jLconfirmPassword = new JLabel("Confirmar contraseña"), jLtipoJugador = new JLabel("Tipo de jugador"), jLtipoArma = new JLabel("Tipo de arma"), jLcompeticionIndividual = new JLabel("Competicion individual"), jLcompeticionEquipo = new JLabel("Competicion en equipo"), jLsexo = new JLabel("Sexo");
     private JLabel jLnombreErr = new JLabel(), jLapellidosErr = new JLabel(), jLtelefonoErr = new JLabel(), jLdniErr = new JLabel(), jLdireccionErr = new JLabel(), jLcodPostalErr = new JLabel(), jLciudadErr = new JLabel(), jLnumFederadoErr = new JLabel(), jLpasswordErr = new JLabel(), jLconfirmarPasswordErr = new JLabel(), jLcompeticionIndividualErr = new JLabel(), jLcompeticionEquipoErr = new JLabel(), jLsexoErr = new JLabel();
     private TextField tFnombre = new TextField(50), tFapellidos = new TextField(70), tFtelefono = new TextField(30), tFdni = new TextField(30), tFdireccion = new TextField(30), tFcodPostal = new TextField(20), tFciudad = new TextField(30), tFnumFederado = new TextField(30);
+    private ButtonGroup sexoGroup = new ButtonGroup();
     private JCheckBox jChBhombre = new JCheckBox("Hombre"), jChBmujer = new JCheckBox("Mujer"), jChBcompeticionIndividual = new JCheckBox(), jChBcompeticionEquipos = new JCheckBox();
     private JComboBox jCBtipoJugador = new JComboBox(tipoDeJugador), jCBtipoArma = new JComboBox(tipoDeArma);
     private JPasswordField jPpassword = new JPasswordField(), jPconfirmarPassword = new JPasswordField();
@@ -59,7 +63,9 @@ public class Ejercicio4 extends JFrame {
         add(tFciudad);
         add(tFnumFederado);
         //JCheckBox
+        sexoGroup.add(jChBhombre);
         add(jChBhombre);
+        sexoGroup.add(jChBmujer);
         add(jChBmujer);
         add(jCBtipoJugador);
         add(jCBtipoArma);
@@ -131,23 +137,22 @@ public class Ejercicio4 extends JFrame {
         }
     }
     public void validarSiEsVacio() {
-        boolean estaTodoCorrecto = true;
-        if (tFnombre.getText().isEmpty() || tFapellidos.getText().isEmpty() || tFtelefono.getText().isEmpty() || tFdni.getText().isEmpty() || tFdireccion.getText().isEmpty() || tFcodPostal.getText().isEmpty() || tFciudad.getText().isEmpty() || tFnumFederado.getText().isEmpty() || jChBhombre.getText().isEmpty() && jChBmujer.getText().isEmpty() || jPpassword.getText().isEmpty() || jPpa.getText().isEmpty()) {
-            if (tFnombre.getText().isEmpty()) {
+        if (tFnombre.getText().isEmpty() || tFapellidos.getText().isEmpty() || tFtelefono.getText().isEmpty() || tFdni.getText().isEmpty() || tFdireccion.getText().isEmpty() || tFcodPostal.getText().isEmpty() || tFciudad.getText().isEmpty() || tFnumFederado.getText().isEmpty() || !jChBhombre.isSelected() && !jChBmujer.isSelected() || jPpassword.getText().isEmpty() || jPconfirmarPassword.getText().isEmpty() || !jChBcompeticionIndividual.isSelected() && !jChBcompeticionEquipos.isSelected()) {
+            if (!validarNombre(tFnombre.getText())) {
                 jLnombreErr.setText("Itroduce un nombre.");
                 jLnombreErr.setForeground(Color.red);
                 jLnombreErr.setVisible(true);
             } else {
                 jLnombreErr.setVisible(false);
             }
-            if (tFapellidos.getText().isEmpty()) {
+            if (!validarApellidos(tFapellidos.getText())) {
                 jLapellidosErr.setText("Itroduce tus Apellidos.");
                 jLapellidosErr.setForeground(Color.red);
                 jLapellidosErr.setVisible(true);
             } else {
                 jLapellidosErr.setVisible(false);
             }
-            if (tFtelefono.getText().isEmpty()) {
+            if (!validarNumero(tFtelefono.getText())) {
                 jLtelefonoErr.setText("Itroduce un telefono.");
                 jLtelefonoErr.setForeground(Color.red);
                 jLtelefonoErr.setVisible(true);
@@ -168,49 +173,49 @@ public class Ejercicio4 extends JFrame {
             } else {
                 jLdireccionErr.setVisible(false);
             }
-            if (tFcodPostal.getText().isEmpty()) {
+            if (!validarCodPostal(tFcodPostal.getText())) {
                 jLcodPostalErr.setText("Itroduce un código postal.");
                 jLcodPostalErr.setForeground(Color.red);
                 jLcodPostalErr.setVisible(true);
             } else {
                 jLcodPostalErr.setVisible(false);
             }
-            if (tFciudad.getText().isEmpty()) {
+            if (!validarCiudad(tFciudad.getText())) {
                 jLciudadErr.setText("Itroduce una nombre ciudad.");
                 jLciudadErr.setForeground(Color.red);
                 jLciudadErr.setVisible(true);
             } else {
                 jLciudadErr.setVisible(false);
             }
-            if (tFnumFederado.getText().isEmpty()) {
+            if (!validarNumFederado(tFnumFederado.getText())) {
                 jLnumFederadoErr.setText("Itroduce tu número de federado.");
                 jLnumFederadoErr.setForeground(Color.red);
                 jLnumFederadoErr.setVisible(true);
             } else {
                 jLnumFederadoErr.setVisible(false);
             }
-            if (jChBhombre.getText().isEmpty() && jChBmujer.getText().isEmpty()) {
+            if (!validarSiElSexoEstaSeleccionado()) {
                 jLsexoErr.setText("Selecciona por lo menos una casilla.");
                 jLsexoErr.setForeground(Color.red);
                 jLsexoErr.setVisible(true);
             } else {
                 jLsexoErr.setVisible(false);
             }
-            if (jPpassword.getText().isEmpty()) {
+            if (!validarPassword()) {
                 jLpasswordErr.setText("Itroduce una contraseña.");
                 jLpasswordErr.setForeground(Color.red);
                 jLpasswordErr.setVisible(true);
             } else {
                 jLpasswordErr.setVisible(false);
             }
-            if (jPconfirmarPassword.getText().isEmpty()) {
+            if (!validarPassword()) {
                 jLconfirmarPasswordErr.setText("Itroduce una contraseña.");
                 jLconfirmarPasswordErr.setForeground(Color.red);
                 jLconfirmarPasswordErr.setVisible(true);
             } else {
                 jLconfirmarPasswordErr.setVisible(false);
             }
-            if (jChBcompeticionIndividual.getText().isEmpty() && jChBcompeticionEquipos.getText().isEmpty()) {
+            if (!validarSiHayCompeticion()) {
                 jLcompeticionIndividualErr.setText("Selecciona por lo menos una casilla.");
                 jLcompeticionIndividualErr.setForeground(Color.red);
                 jLcompeticionIndividualErr.setVisible(true);
@@ -221,9 +226,105 @@ public class Ejercicio4 extends JFrame {
                 jLcompeticionIndividualErr.setVisible(false);
                 jLcompeticionEquipoErr.setVisible(false);
             }
+        }else {
+            ponerErroresInvisible();
         }
     }
+    public void ponerErroresInvisible() {
+        jLnombreErr.setVisible(false);
+        jLapellidosErr.setVisible(false);
+        jLtelefonoErr.setVisible(false);
+        jLdniErr.setVisible(false);
+        jLdireccionErr.setVisible(false);
+        jLcodPostalErr.setVisible(false);
+        jLciudadErr.setVisible(false);
+        jLnumFederadoErr.setVisible(false);
+        jLsexoErr.setVisible(false);
+        jLpasswordErr.setVisible(false);
+        jLconfirmarPasswordErr.setVisible(false);
+        jLcompeticionIndividualErr.setVisible(false);
+        jLcompeticionEquipoErr.setVisible(false);
+    }
 
+    public boolean validarNombre(String name) {
+        String regex = "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$";
+        Pattern p = Pattern.compile(regex);
+        if (name == null) {
+            return false;
+        }
+        Matcher m = p.matcher(name);
+        return m.matches();
+    }
+    public boolean validarApellidos(String name) {
+        String regex = "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$";
+        Pattern p = Pattern.compile(regex);
+        if (name == null) {
+            return false;
+        }
+        Matcher m = p.matcher(name);
+        return m.matches();
+    }
+
+    public boolean validarNumero(String numero) {
+        String regex = "\\d{9}";
+        Pattern p = Pattern.compile(regex);
+        if (numero == null) {
+            return false;
+        }
+        Matcher m = p.matcher(numero);
+        return m.matches();
+    }
+
+    public boolean validarCodPostal(String codigoPostal) {
+        String regex = "\\d{5}";
+        Pattern p = Pattern.compile(regex);
+        if (codigoPostal == null) {
+            return false;
+        }
+        Matcher m = p.matcher(codigoPostal);
+        return m.matches();
+    }
+
+    public boolean validarCiudad(String ciudad) {
+        String regex = "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$";
+        Pattern p = Pattern.compile(regex);
+        if (ciudad == null) {
+            return false;
+        }
+        Matcher m = p.matcher(ciudad);
+        return m.matches();
+    }
+
+    public boolean validarNumFederado(String numFederado) {
+        String regex = "\\d";
+        Pattern p = Pattern.compile(regex);
+        if (numFederado == null) {
+            return false;
+        }
+        Matcher m = p.matcher(numFederado);
+        return m.matches();
+    }
+
+    public boolean validarPassword() {
+        if (jPpassword.getText().isEmpty() || jPconfirmarPassword.getText().isEmpty() || !Objects.equals(jPpassword.getText(), jPconfirmarPassword.getText())) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validarSiElSexoEstaSeleccionado() {
+        if (!jChBhombre.isSelected() && !jChBmujer.isSelected()) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validarSiHayCompeticion() {
+        if (!jChBcompeticionIndividual.isSelected() && !jChBcompeticionEquipos.isSelected()) {
+            return false;
+        }
+        return true;
+    }
     public static void main(String[] args) {
         Ejercicio4 aplicacion = new Ejercicio4();
     }
