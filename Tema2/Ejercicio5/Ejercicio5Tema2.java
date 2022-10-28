@@ -8,14 +8,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static java.nio.file.StandardOpenOption.CREATE;
 
-public class Ejercicio4 extends JFrame {
+public class Ejercicio5Tema2 extends JFrame {
     private Path personaFichero = Path.of("/home/carpui/Escritorio/formulario.txt");
     private String[] tipoDeJugador = {"arbitro", "entrenador", "tirador", "director"}, tipoDeArma = {"sable", "espada", "florete"};
     private JLabel jLnombre = new JLabel("Nombre"), jLapellidos = new JLabel("Apellidos"), jLtelefono = new JLabel("Numero de telefono"), jLdni = new JLabel("DNI"), jLdireccion = new JLabel("Dirección"), jLcodPostal = new JLabel("Codigo Postal"), jLciudad = new JLabel("Ciudad"), jLnumFederado = new JLabel("Numero de Federado"), jLpassword = new JLabel("Contraseña"), jLconfirmPassword = new JLabel("Confirmar contraseña"), jLtipoJugador = new JLabel("Tipo de jugador"), jLtipoArma = new JLabel("Tipo de arma"), jLcompeticionIndividual = new JLabel("Competicion individual"), jLcompeticionEquipo = new JLabel("Competicion en equipo"), jLsexo = new JLabel("Sexo");
@@ -27,7 +26,7 @@ public class Ejercicio4 extends JFrame {
     private JPasswordField jPpassword = new JPasswordField(), jPconfirmarPassword = new JPasswordField();
     private JButton jBboton1 = new JButton("Guardar");
 
-    public Ejercicio4 () {
+    public Ejercicio5Tema2() {
         super("Agenda");
         getContentPane();
         setLayout(null);
@@ -84,7 +83,7 @@ public class Ejercicio4 extends JFrame {
         add(jPconfirmarPassword);
         //JButton
         add(jBboton1);
-        jBboton1.addActionListener(new Ejercicio4.OyenteBoton1());
+        jBboton1.addActionListener(new Ejercicio5Tema2.OyenteBoton1());
         //Config Jlabel
         jLnombre.setBounds(10   , 50, 50, 20);
         jLapellidos.setBounds(10   , 100, 60, 20);
@@ -374,6 +373,6 @@ public class Ejercicio4 extends JFrame {
         return true;
     }
     public static void main(String[] args) {
-        Ejercicio4 aplicacion = new Ejercicio4();
+        Ejercicio5Tema2 aplicacion = new Ejercicio5Tema2();
     }
 }
