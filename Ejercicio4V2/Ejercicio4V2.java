@@ -7,27 +7,27 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static java.nio.file.StandardOpenOption.CREATE;
 
-public class Ejercicio4 extends JFrame {
+public class Ejercicio4V2 extends JFrame {
     private Path personaFichero = Path.of("/home/carpui/Escritorio/formulario.txt");
-    private String[] tipoDeJugador = {"arbitro", "entrenador", "tirador", "director"}, tipoDeArma = {"sable", "espada", "florete"};
-    private JLabel jLnombre = new JLabel("Nombre"), jLapellidos = new JLabel("Apellidos"), jLtelefono = new JLabel("Numero de telefono"), jLdni = new JLabel("DNI"), jLdireccion = new JLabel("Dirección"), jLcodPostal = new JLabel("Codigo Postal"), jLciudad = new JLabel("Ciudad"), jLnumFederado = new JLabel("Numero de Federado"), jLpassword = new JLabel("Contraseña"), jLconfirmPassword = new JLabel("Confirmar contraseña"), jLtipoJugador = new JLabel("Tipo de jugador"), jLtipoArma = new JLabel("Tipo de arma"), jLcompeticionIndividual = new JLabel("Competicion individual"), jLcompeticionEquipo = new JLabel("Competicion en equipo"), jLsexo = new JLabel("Sexo");
-    private JLabel jLnombreErr = new JLabel(), jLapellidosErr = new JLabel(), jLtelefonoErr = new JLabel(), jLdniErr = new JLabel(), jLdireccionErr = new JLabel(), jLcodPostalErr = new JLabel(), jLciudadErr = new JLabel(), jLnumFederadoErr = new JLabel(), jLpasswordErr = new JLabel(), jLconfirmarPasswordErr = new JLabel(), jLcompeticionIndividualErr = new JLabel(), jLcompeticionEquipoErr = new JLabel(), jLsexoErr = new JLabel();
+    private String[] tipoDeArma = {"sable", "espada", "florete"}, tipoClub = {"Club de Esgrima Azahar", "Club Mediterráneo", "Sala de Armas de Valencia", "Guerreros de Alicante"};
+    private JLabel jLnombre = new JLabel("Nombre"), jLapellidos = new JLabel("Apellidos"), jLtelefono = new JLabel("Numero de telefono"), jLdni = new JLabel("DNI"), jLdireccion = new JLabel("Dirección"), jLcodPostal = new JLabel("Codigo Postal"), jLciudad = new JLabel("Ciudad"), jLnumFederado = new JLabel("Numero de Federado"), jLpassword = new JLabel("Contraseña"), jLconfirmPassword = new JLabel("Confirmar contraseña"), jLtipoJugador = new JLabel("Tipo de jugador"), jLtipoArma = new JLabel("Tipo de arma"), jLcompeticionIndividual = new JLabel("Competicion individual"), jLcompeticionEquipo = new JLabel("Competicion en equipo"), jLsexo = new JLabel("Sexo"), jLclub = new JLabel("Tipo de club");
+    private JLabel jLnombreErr = new JLabel(), jLapellidosErr = new JLabel(), jLtelefonoErr = new JLabel(), jLdniErr = new JLabel(), jLdireccionErr = new JLabel(), jLcodPostalErr = new JLabel(), jLciudadErr = new JLabel(), jLnumFederadoErr = new JLabel(), jLpasswordErr = new JLabel(), jLconfirmarPasswordErr = new JLabel(), jLcompeticionIndividualErr = new JLabel(), jLcompeticionEquipoErr = new JLabel(), jLsexoErr = new JLabel(), jLtipoJugadorErr = new JLabel();
     private TextField tFnombre = new TextField(50), tFapellidos = new TextField(70), tFtelefono = new TextField(30), tFdni = new TextField(30), tFdireccion = new TextField(30), tFcodPostal = new TextField(20), tFciudad = new TextField(30), tFnumFederado = new TextField(30);
     private ButtonGroup sexoGroup = new ButtonGroup();
-    private JCheckBox jChBhombre = new JCheckBox("Hombre"), jChBmujer = new JCheckBox("Mujer"), jChBcompeticionIndividual = new JCheckBox("Individual"), jChBcompeticionEquipos = new JCheckBox("Competitivo");
-    private JComboBox jCBtipoJugador = new JComboBox(tipoDeJugador), jCBtipoArma = new JComboBox(tipoDeArma);
+    private JCheckBox jChBhombre = new JCheckBox("Hombre"), jChBmujer = new JCheckBox("Mujer"), jChBcompeticionIndividual = new JCheckBox("Individual"), jChBcompeticionEquipos = new JCheckBox("Competitivo"), jChTirador = new JCheckBox("Tirador"), jChEntrenador = new JCheckBox("Entrenador"), jChDirector = new JCheckBox("Director"), jChArbitro = new JCheckBox("Arbitro");
+    private JComboBox jCBtipoArma = new JComboBox(tipoDeArma), jCBtipoClub = new JComboBox(tipoClub);
     private JPasswordField jPpassword = new JPasswordField(), jPconfirmarPassword = new JPasswordField();
     private JButton jBboton1 = new JButton("Guardar");
 
-    public Ejercicio4 () {
+    public Ejercicio4V2() {
         super("Agenda");
         getContentPane();
         setLayout(null);
@@ -47,6 +47,7 @@ public class Ejercicio4 extends JFrame {
         add(jLtipoArma);
         add(jLcompeticionIndividual);
         add(jLcompeticionEquipo);
+        add(jLclub);
         //jLabel Error
         add(jLnombreErr);
         add(jLapellidosErr);
@@ -59,6 +60,7 @@ public class Ejercicio4 extends JFrame {
         add(jLsexoErr);
         add(jLpasswordErr);
         add(jLconfirmarPasswordErr);
+        add(jLtipoJugadorErr);
         add(jLcompeticionIndividualErr);
         add(jLcompeticionEquipoErr);
         //TextField
@@ -75,16 +77,20 @@ public class Ejercicio4 extends JFrame {
         add(jChBhombre);
         sexoGroup.add(jChBmujer);
         add(jChBmujer);
-        add(jCBtipoJugador);
+        add(jChTirador);
+        add(jChEntrenador);
+        add(jChDirector);
+        add(jChArbitro);
         add(jCBtipoArma);
         add(jChBcompeticionIndividual);
         add(jChBcompeticionEquipos);
+        add(jCBtipoClub);
         //JPasswordField
         add(jPpassword);
         add(jPconfirmarPassword);
         //JButton
         add(jBboton1);
-        jBboton1.addActionListener(new Ejercicio4.OyenteBoton1());
+        jBboton1.addActionListener(new Ejercicio4V2.OyenteBoton1());
         //Config Jlabel
         jLnombre.setBounds(10   , 50, 50, 20);
         jLapellidos.setBounds(10   , 100, 60, 20);
@@ -101,6 +107,7 @@ public class Ejercicio4 extends JFrame {
         jLtipoArma.setBounds(10   , 650, 100, 20);
         jLcompeticionIndividual.setBounds(10   , 700, 150, 20);
         jLcompeticionEquipo.setBounds(10   , 750, 150, 20);
+        jLclub.setBounds(10   , 800, 100, 20);
         //Config Jlabel Error
         jLnombreErr.setBounds(500   , 50, 200, 20);
         jLapellidosErr.setBounds(500   , 100, 200, 20);
@@ -113,6 +120,7 @@ public class Ejercicio4 extends JFrame {
         jLsexoErr.setBounds(500   , 450, 250, 20);
         jLpasswordErr.setBounds(500   , 500, 200, 20);
         jLconfirmarPasswordErr.setBounds(500   , 550, 200, 20);
+        jLtipoJugadorErr.setBounds(550   , 600, 250, 20);
         jLcompeticionIndividualErr.setBounds(500   , 700, 250, 20);
         jLcompeticionEquipoErr.setBounds(500   , 750, 250, 20);
         //Config Other
@@ -128,10 +136,14 @@ public class Ejercicio4 extends JFrame {
         jChBmujer.setBounds(80   , 460, 100, 20);
         jPpassword.setBounds(150   , 500, 150, 20);
         jPconfirmarPassword.setBounds(150   , 550, 150, 20);
-        jCBtipoJugador.setBounds(150   , 600, 100, 20);
+        jChTirador.setBounds(150   , 600, 100, 20);
+        jChEntrenador.setBounds(250   , 600, 100, 20);
+        jChDirector.setBounds(350   , 600, 100, 20);
+        jChArbitro.setBounds(450   , 600, 100, 20);
         jCBtipoArma.setBounds(150   , 650, 100, 20);
         jChBcompeticionIndividual.setBounds(170   , 700, 150, 20);
         jChBcompeticionEquipos.setBounds(170   , 750, 150, 20);
+        jCBtipoClub.setBounds(150   , 800, 150, 20);
         //Config button
         jBboton1.setBounds(350   , 800, 150, 100);
         setSize(900, 950);
@@ -145,7 +157,7 @@ public class Ejercicio4 extends JFrame {
         }
     }
     public void validarSiEsVacioIntroducirEnFichero() {
-        if (tFnombre.getText().isEmpty() || tFapellidos.getText().isEmpty() || tFtelefono.getText().isEmpty() || tFdni.getText().isEmpty() || tFdireccion.getText().isEmpty() || tFcodPostal.getText().isEmpty() || tFciudad.getText().isEmpty() || tFnumFederado.getText().isEmpty() || !jChBhombre.isSelected() && !jChBmujer.isSelected() || jPpassword.getText().isEmpty() || jPconfirmarPassword.getText().isEmpty() || !jChBcompeticionIndividual.isSelected() && !jChBcompeticionEquipos.isSelected()) {
+        if (!validarSiHayAlgunoVacio()) {
             if (!validarNombre(tFnombre.getText())) {
                 jLnombreErr.setText("Itroduce un nombre.");
                 jLnombreErr.setForeground(Color.red);
@@ -167,7 +179,7 @@ public class Ejercicio4 extends JFrame {
             } else {
                 jLtelefonoErr.setVisible(false);
             }
-            if (tFdni.getText().isEmpty()) {
+            if (!validarDni(tFdni.getText())) {
                 jLdniErr.setText("Itroduce un DNI.");
                 jLdniErr.setForeground(Color.red);
                 jLdniErr.setVisible(true);
@@ -216,12 +228,11 @@ public class Ejercicio4 extends JFrame {
             } else {
                 jLpasswordErr.setVisible(false);
             }
-            if (!validarPassword()) {
-                jLconfirmarPasswordErr.setText("Itroduce una contraseña.");
-                jLconfirmarPasswordErr.setForeground(Color.red);
-                jLconfirmarPasswordErr.setVisible(true);
+            if (!validarSiJugadorEstaSelecionado()) {
+                jLtipoJugadorErr.setForeground(Color.red);
+                jLtipoJugadorErr.setVisible(true);
             } else {
-                jLconfirmarPasswordErr.setVisible(false);
+                jLtipoJugadorErr.setVisible(false);
             }
             if (!validarSiHayCompeticion()) {
                 jLcompeticionIndividualErr.setText("Selecciona por lo menos una casilla.");
@@ -240,6 +251,12 @@ public class Ejercicio4 extends JFrame {
         }
     }
 
+    public boolean validarSiHayAlgunoVacio() {
+        if (!validarNombre(tFnombre.getText()) || !validarApellidos(tFapellidos.getText()) || !validarNumero(tFtelefono.getText()) || !validarDni(tFdni.getText()) || tFdireccion.getText().isEmpty() || !validarCodPostal(tFcodPostal.getText()) || !validarCiudad(tFciudad.getText()) || !validarNumFederado(tFnumFederado.getText()) || !validarSiElSexoEstaSeleccionado() || !validarPassword() || !validarSiJugadorEstaSelecionado() || !validarSiHayCompeticion()) {
+            return false;
+        }
+        return true;
+    }
     public void meterAtributosEnListaYcrearFichero() {
         ArrayList<String> listaCadenas = new ArrayList<>();
         try (BufferedWriter bw = Files.newBufferedWriter(personaFichero, StandardOpenOption.APPEND, CREATE)){
@@ -258,7 +275,22 @@ public class Ejercicio4 extends JFrame {
             }
             listaCadenas.add(jPpassword.getText());
             listaCadenas.add(jPconfirmarPassword.getText());
-            listaCadenas.add(Objects.requireNonNull(jCBtipoJugador.getSelectedItem()).toString());
+            if (jChTirador.isSelected()) {
+                listaCadenas.add(jChTirador.getText());
+                System.out.println("bien");
+            }
+            if (jChEntrenador.isSelected()){
+                listaCadenas.add(jChEntrenador.getText());
+                System.out.println("bien");
+            }
+            if (jChDirector.isSelected()) {
+                listaCadenas.add(jChDirector.getText());
+                System.out.println("bien");
+            }
+            if (jChArbitro.isSelected()){
+                listaCadenas.add(jChArbitro.getText());
+                System.out.println("Soy arbitro");
+            }
             listaCadenas.add(Objects.requireNonNull(jCBtipoArma.getSelectedItem()).toString());
             if (jChBcompeticionIndividual.isSelected() && jChBcompeticionEquipos.isSelected()) {
                 listaCadenas.add(jChBcompeticionIndividual.getText());
@@ -268,7 +300,7 @@ public class Ejercicio4 extends JFrame {
             }else {
                 listaCadenas.add(jChBcompeticionEquipos.getText());
             }
-
+            listaCadenas.add(Objects.requireNonNull(jCBtipoClub.getSelectedItem()).toString());
             for (String cadena : listaCadenas) {
                 bw.write(cadena);
                 bw.newLine();
@@ -290,6 +322,7 @@ public class Ejercicio4 extends JFrame {
         jLsexoErr.setVisible(false);
         jLpasswordErr.setVisible(false);
         jLconfirmarPasswordErr.setVisible(false);
+        jLtipoJugadorErr.setVisible(true);
         jLcompeticionIndividualErr.setVisible(false);
         jLcompeticionEquipoErr.setVisible(false);
     }
@@ -315,6 +348,16 @@ public class Ejercicio4 extends JFrame {
 
     public boolean validarNumero(String numero) {
         String regex = "\\d{9}";
+        Pattern p = Pattern.compile(regex);
+        if (numero == null) {
+            return false;
+        }
+        Matcher m = p.matcher(numero);
+        return m.matches();
+    }
+
+    public boolean validarDni(String numero) {
+        String regex = "\\d{8}[A-Z]{1}";
         Pattern p = Pattern.compile(regex);
         if (numero == null) {
             return false;
@@ -366,7 +409,18 @@ public class Ejercicio4 extends JFrame {
         }
         return true;
     }
-
+    public boolean validarSiJugadorEstaSelecionado() {
+        if (!jChTirador.isSelected() && !jChEntrenador.isSelected() && !jChDirector.isSelected() && !jChArbitro.isSelected()) {
+            jLtipoJugadorErr.setText("Selecciona por lo menos una casilla.");
+            return false;
+        }else if (jChTirador.isSelected()  && jChArbitro.isSelected() || jChEntrenador.isSelected()  && jChArbitro.isSelected() || jChDirector.isSelected() && jChArbitro.isSelected()) {
+            jLtipoJugadorErr.setText("Si eleiges arbitro no puedes elegir otro.");
+            return false;
+        } else if (jChTirador.isSelected() && jChEntrenador.isSelected() && jChDirector.isSelected() && !jChArbitro.isSelected()) {
+            return true;
+        }
+        return true;
+    }
     public boolean validarSiHayCompeticion() {
         if (!jChBcompeticionIndividual.isSelected() && !jChBcompeticionEquipos.isSelected()) {
             return false;
@@ -374,6 +428,6 @@ public class Ejercicio4 extends JFrame {
         return true;
     }
     public static void main(String[] args) {
-        Ejercicio4 aplicacion = new Ejercicio4();
+        Ejercicio4V2 aplicacion = new Ejercicio4V2();
     }
 }
