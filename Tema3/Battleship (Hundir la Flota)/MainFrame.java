@@ -10,16 +10,18 @@ public class MainFrame extends JFrame {
 
     public MainFrame() {
         setContentPane(mainPanel);
-        setTitle("Hola");
+        setTitle("BattleShip");
         setSize(450, 300);
+        setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         empezarElJuegoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame1.setSize(1300, 500);
-                frame1.setLocationRelativeTo(null);
-                frame1.setVisible(true);
+                TableroFrame tablero = new TableroFrame();
+                tablero.add(tablero);
+                tablero.setSize(1300, 500);
+                tablero.setVisible(true);
             }
         });
     }
