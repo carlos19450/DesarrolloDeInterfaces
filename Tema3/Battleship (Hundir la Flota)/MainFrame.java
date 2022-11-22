@@ -18,7 +18,7 @@ public class MainFrame extends JFrame {
         empezarElJuegoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PanelTablero tablero = new PanelTablero();
+                TableroFrame tablero = new TableroFrame();
             }
         });
     }
