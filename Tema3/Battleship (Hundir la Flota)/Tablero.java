@@ -9,6 +9,22 @@ public class Tablero {
         barcos = new ArrayList<Barco>();
     }
 
+    public int[][] getTablero() {
+        return tablero;
+    }
+
+    public void setTablero(int[][] tablero) {
+        this.tablero = tablero;
+    }
+
+    public ArrayList<Barco> getBarcos() {
+        return barcos;
+    }
+
+    public void setBarcos(ArrayList<Barco> barcos) {
+        this.barcos = barcos;
+    }
+
     public void anadirBarco(Barco barco) {
         barcos.add(barco);
         for (Coordenadas coord: barco.listaCoordenadas)
