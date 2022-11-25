@@ -1,14 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Celda extends JFrame {
+public class PanelCelda extends JPanel {
     Coordenadas coord;
 
-    public Celda(Coordenadas coord) {
-        System.out.println(coord.y);
+    public PanelCelda(Coordenadas coord) {
         this.coord = coord;
         setPreferredSize(new Dimension(50, 50));
-        BorderFactory.createLineBorder(Color.BLACK, 4, true);
+        setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         setBackground(Color.WHITE);
     }
 }
