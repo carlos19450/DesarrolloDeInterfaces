@@ -1,11 +1,14 @@
 import javax.swing.*;
 
-public class BattleShip extends JPanel {
+public class BattleShip extends JFrame {
     private Tablero tablero1;
-    private final ConfiguracionBarcos crearBarcos;
+    private ConfiguracionBarcos crearBarcos;
 
     public BattleShip() {
+        setSize(850, 850);
         tablero1 = new Tablero();
-        crearBarcos = new ConfiguracionBarcos(null, tablero1);
+        crearBarcos = new ConfiguracionBarcos(tablero1);
+        add(crearBarcos);
+        setVisible(true);
     }
 }
