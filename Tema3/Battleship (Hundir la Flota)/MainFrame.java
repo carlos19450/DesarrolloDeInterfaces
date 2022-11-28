@@ -19,9 +19,9 @@ public class MainFrame extends JFrame {
         empezarElJuegoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PanelTablero tablero = new PanelTablero();
+                BattleShip batalla = new BattleShip();
                 frame1.setSize(850, 850);
-                frame1.add(tablero);
+                frame1.add(batalla);
                 frame1.setLocationRelativeTo(null);
                 frame1.setVisible(true);
             }

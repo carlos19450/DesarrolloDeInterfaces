@@ -4,8 +4,8 @@ import java.awt.*;
 public class PanelTablero extends JPanel {
     public PanelCelda[][] celdas;
     private Tablero tab;
-
-    public PanelTablero() {
+    public PanelTablero(Tablero tab) {
+        this.tab = tab;
         celdas = new PanelCelda[10][10];
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
