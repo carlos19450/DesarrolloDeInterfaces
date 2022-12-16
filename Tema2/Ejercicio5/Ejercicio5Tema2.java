@@ -155,6 +155,7 @@ public class Ejercicio5Tema2 extends JFrame {
             validarSiEsVacioIntroducirEnFichero();
         }
     }
+
     public void validarSiEsVacioIntroducirEnFichero() {
         if (!validarSiHayAlgunoVacio()) {
             if (!validarNombre(tFnombre.getText())) {
