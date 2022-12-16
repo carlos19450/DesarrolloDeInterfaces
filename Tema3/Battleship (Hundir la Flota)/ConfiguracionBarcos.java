@@ -51,7 +51,6 @@ public class ConfiguracionBarcos extends JPanel{
                                 int orientacion = JOptionPane.showOptionDialog(null, "Elija orientación",
                                         "Colocar Barcos", 0, JOptionPane.QUESTION_MESSAGE, null, opciones, 0);
 
-                                colocarBarco(codigo, orientacion, cel);
                             }
                         }
                         @Override
@@ -95,38 +94,4 @@ public class ConfiguracionBarcos extends JPanel{
             setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         }
     }
-    private void colocarBarco(String codigo, int orientacion, PanelCelda celda) {
-
-        boolean colocado;
-
-        if (orientacion == 0) //Vertical
-            colocado = colocarVertical(codigo, celda);
-        else
-            colocado = colocarHorizontal(codigo, celda);
-
-        //Si se ha colocado el Barco, comprobamos si se permite poner más
-
-        if (colocado) {
-            limiteBarcos--;
-
-            if (limiteBarcos == 0) {
-                listaBarcos.setEnabled(false);
-                panelTablero.desactivarListener();
-                botonTerminar.setEnabled(true);
-            }
-            else {
-                /*
-                 * Se permiten más barcos, pero no el mismo que acabamos de poner.
-                 * Solo se puede repetir el Destructor, si estamos en nivel EASY
-                 */
-                if (codigo.equals("DT")) {
-                    if (dificultad != 1) //No es EASY
-                        listaBarcos.removeItem("DT-Destructor");
-                    else if (tablero.hayDosDestructores()) //EASY, solo si ya hay dos eliminamos DT de la lista
-                        listaBarcos.removeItem("DT-Destructor");
-                }
-                else //No es destructor, eliminamos el Barco correspondiente al código
-                    listaBarcos.removeItem(listaBarcos.getSelectedItem());
-            }
-        }
 }
