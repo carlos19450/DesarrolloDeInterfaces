@@ -1,0 +1,51 @@
+<component name="libraryTable">
+  <library name="prompto.WebSite" type="repository">
+    <properties maven-id="org.prompto:WebSite:0.0.6" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/prompto/WebSite/0.0.6/WebSite-0.0.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/prompto/Server/0.0.4/Server-0.0.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/9.3.3.v20150827/jetty-server-9.3.3.v20150827.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-http/9.3.3.v20150827/jetty-http-9.3.3.v20150827.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-util/9.3.3.v20150827/jetty-util-9.3.3.v20150827.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-io/9.3.3.v20150827/jetty-io-9.3.3.v20150827.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-webapp/9.3.3.v20150827/jetty-webapp-9.3.3.v20150827.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-xml/9.3.3.v20150827/jetty-xml-9.3.3.v20150827.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-servlet/9.3.3.v20150827/jetty-servlet-9.3.3.v20150827.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-security/9.3.3.v20150827/jetty-security-9.3.3.v20150827.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-annotations/9.3.3.v20150827/jetty-annotations-9.3.3.v20150827.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-plus/9.3.3.v20150827/jetty-plus-9.3.3.v20150827.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-jndi/9.3.3.v20150827/jetty-jndi-9.3.3.v20150827.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm/5.0.1/asm-5.0.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm-commons/5.0.1/asm-commons-5.0.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm-tree/5.0.1/asm-tree-5.0.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.6.2/jackson-core-2.6.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.6.2/jackson-databind-2.6.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.6.0/jackson-annotations-2.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/prompto/Core/0.0.4/Core-0.0.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/antlr/antlr4-runtime/4.5/antlr4-runtime-4.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.8/joda-time-2.8.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/prompto/Runtime/0.0.4/Runtime-0.0.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/prompto/CodeStore/0.0.4/CodeStore-0.0.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/prompto/Standalone/0.0.4/Standalone-0.0.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/prompto/SOLRStore/0.0.4/SOLRStore-0.0.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/solr/solr-solrj/5.4.0/solr-solrj-5.4.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.4/commons-io-2.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.4.1/httpclient-4.4.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.1/httpcore-4.4.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpmime/4.4.1/httpmime-4.4.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/noggit/noggit/0.6/noggit-0.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/prompto/SOLRFields/0.0.4/SOLRFields-0.0.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
