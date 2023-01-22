@@ -9,10 +9,16 @@ const expresiones = {
     soloNumeroConDosDeciamles: /^[0-9]+,[0-9]{2}$/,
     soloNumerosConEnterosYdecimales: /^([0-9]+)?([0-9]+,[0-9]+)?$/,
     soloNumerosConEnterosPositivosYnegativos: /^([0-9]+)?([\-0-9]+)?$/,
-    usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-    password: /^.{4,12}$/, // 4 a 12 digitos.
+    soloNumeroRealesConDecimalesYmiles: /^([0-9\.\,]+)?([\-0-9\.\,]+)?$/,
+    fecha: /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/,
+    hora12: /^[0-9]:[0-9]{2}\s(AM)?(PM)?$/,
+    hora24: /^[0-9]:[0-9]{2}\s(AM)?(PM)?$/,
+    usuario: /^[a-zA-Z0-9\_\-]{4,16}$/,
+    password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{8,}$/,
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+    url: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/,
+    ip4: /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/,
+    hexaDeciaml: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/
 }
 
 const validarFormulario = (e) => {
@@ -67,14 +73,39 @@ const validarFormulario = (e) => {
             }
             break;
         case "f8":
+            if (expresiones.soloNumeroRealesConDecimalesYmiles.test(e.target.value)) {
+                console.log("Bien");
+            }else {
+                console.log("Error. Solo numeros reales positivos o negativos");
+            }
             break;
         case "f9":
+            if (expresiones.fecha.test(e.target.value)) {
+                console.log("Bien");
+            }else {
+                console.log("Error. Introduce una fecha con formato dd/mm/yyyy");
+            }
             break;
         case "f10":
+            if (expresiones.hora12.test(e.target.value)) {
+                console.log("Bien");
+            }else {
+                console.log("Error. Introduce una fecha con formato h:mm AM/PM");
+            }
             break;
         case "f11":
+            if (expresiones.hora24.test(e.target.value)) {
+                console.log("Bien");
+            }else {
+                console.log("Error. Introduce una fecha con formato hh:mm AM/PM");
+            }
             break;
         case "f12":
+            if (expresiones.password.test(e.target.value)) {
+                console.log("Bien");
+            }else {
+                console.log("Error. Introduce una contraseña con 1 Mayus, 1 Minus, 1 Num, 1 Caratcer Especial y minimo 8 digitos");
+            }
             break;
         case "f13":
             break;
@@ -86,10 +117,25 @@ const validarFormulario = (e) => {
             }
             break;
         case "f15":
+            if (expresiones.url.test(e.target.value)) {
+                console.log("Bien");
+            }else {
+                console.log("Error. URL invalida");
+            }
             break;
         case "f16":
+            if (expresiones.ip4.test(e.target.value)) {
+                console.log("Bien");
+            }else {
+                console.log("Error. Ip4 invalida");
+            }
             break;
         case "f17":
+            if (expresiones.hexaDeciaml.test(e.target.value)) {
+                console.log("Bien");
+            }else {
+                console.log("Error. Ip4 invalida");
+            }
             break;
     }
 }
