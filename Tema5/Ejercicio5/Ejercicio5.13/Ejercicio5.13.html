@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio5.13</title>
+</head>
+<body>
+<header>
+</header>
+<main>
+  <form action="" class="formulario" id="formulario">
+    Nombre: <input type="text" name="f1" id="f1" autofocus required placeholder="Nombres" />
+    <br />
+    Apellido: <input type="text" name="f2" id="f2" autofocus required placeholder="Apellidos" />
+    <br />
+    Mail: <input type="text" name="f3" id="f3" autofocus required placeholder="Mail" />
+    <br />
+    Contraseña: <input type="password" name="f4" id="f4" autofocus required placeholder="Contraseña" />
+    <br />
+    <div id="info">Máximo 50 caracteres</div>
+    <textarea id="texto" onkeypress="return limita(event, 50);" onkeyup="actualizaInfo(50)" rows="6" cols="80"></textarea>
+    <br />
+    <input type="submit" value="Enviar" />
+  </form>
+</main>
+<script type="text/javascript" src="Ejercicio5.13.js"></script>
+</body>
+
+</html>
