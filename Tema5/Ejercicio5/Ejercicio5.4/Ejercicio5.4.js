@@ -1,11 +1,12 @@
+// Son los numero del dado
 var a = b = c = d = e = f = 0;
 var totalTiradas = 0;
-
+// Funcion para lanzar el dado
 function tiradaDado(){
     var dado6caras = parseInt(6 * Math.random() + 1);
     return dado6caras;
 }
-
+//Se lanzará el dado 36000 veces
 for(i = 0; i < 36000; i++){
     tirada = tiradaDado();
     switch(tirada){
@@ -29,7 +30,7 @@ for(i = 0; i < 36000; i++){
             break;
     }
 }
-
+// Informacion de lo que ha pasado
 totalTiradas = a + b + c + d + e + f;
 
 document.write("El 1 ha salido " + a + " veces<br>");

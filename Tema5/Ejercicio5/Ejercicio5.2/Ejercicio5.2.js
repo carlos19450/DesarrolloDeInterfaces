@@ -1,17 +1,20 @@
 function palindromo(cadena) {
 
-    var resultado = "La cadena \""+cadena+"\" \n";
+    var resultado = "La cadena \"" + cadena + "\" \n";
     var cadenaOriginal = cadena.toLowerCase();
     var letrasEspacios = cadenaOriginal.split("");
     var cadenaSinEspacios = "";
+    // Creamos una cadena sin espacios.
     for(i in letrasEspacios) {
         if(letrasEspacios[i] !== " ") {
             cadenaSinEspacios += letrasEspacios[i];
         }
     }
     var letras = cadenaSinEspacios.split("");
+    // Revertimos la cadena
     var letrasAlReves = cadenaSinEspacios.split("").reverse();
     var iguales = true;
+    // Comparamos si es palindromo
     for(i in letras) {
         if(letras[i] === letrasAlReves[i]) {
             // Todo bien

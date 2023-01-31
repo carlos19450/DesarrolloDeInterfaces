@@ -1,6 +1,6 @@
 function info(cadena) {
 
-    var resultado = "La cadena \""+cadena+"\" ";
+    var resultado = "La cadena \"" + cadena + "\" ";
 
     if(cadena === cadena.toUpperCase()) {
         resultado += " cadena formada solo por mayusculas";

@@ -1,21 +1,22 @@
-send.addEventListener('click', ()=>{
-    let nombre = document.getElementById('nombre').value;
-    let apellido = document.getElementById('apellido').value;
-    let genero = document.getElementById('genero').value;
+// Añadimos un escucha
+send.addEventListener("click", ()=>{
+    var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
+    var genero = document.getElementById("genero").value;
 
-    let p1 = new Persona(nombre,apellido,genero);
+    var p1 = new Persona(nombre, apellido, genero);
 
-    result.innerHTML = '<p>> ' + p1.obtDetalles(p1) + '</p>';
+    result.innerHTML = "OBJETO: " + p1.obtDetalles(p1);
 });
 
-// Person Model
+// Este es el Objeto Persona
 function Persona(n,a,g){
     this.nombre = n;
     this.apellido = a;
     this.genero = g;
 }
 
-// Metodo
+// Este es el metodo para mostrar la persona
 Persona.prototype.obtDetalles = (instance) => {
-    return 'Nombre: ' + instance.nombre + ', Apellido: ' + instance.apellido + ', Genero: ' + instance.genero;
+    return "Nombre: " + instance.nombre + ", Apellido: " + instance.apellido + ", Genero: " + instance.genero;
 }
