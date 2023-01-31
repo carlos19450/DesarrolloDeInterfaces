@@ -27,10 +27,10 @@ function validDate(t){
 // Añado un escucha para el mail
 send2.addEventListener("click",() => {
     let mail = readIn();
-
     validMail(mail);
 });
 
+// Valida el mail
 function validMail(mail){
     if(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(mail))
         result.innerHTML += "<p>Se ha introducida: \"" + mail + "\"</p>";
@@ -38,6 +38,7 @@ function validMail(mail){
         result.innerHTML += "<p><strong>NO</strong> se ha introducido un formato de email correcto</p>";
 }
 
+// Añado un escucha la inversion
 send4.addEventListener("click",() => {
     let input = readIn();
     if(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/.test(input)){
