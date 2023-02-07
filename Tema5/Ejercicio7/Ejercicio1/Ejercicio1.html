@@ -1,0 +1,64 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de Items</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          $("#bot1").click(function(){
+            $("#div1").hide();
+          });
+        });
+
+        $(document).ready(function(){
+          $("#bot2").click(function(){
+            $("#div1").show();
+          });
+        });
+
+        $(document).ready(function(){
+          $("#bot3").click(function(){
+            $("ul").append("<li>Item x</li>");
+          });
+        });
+
+        $(document).ready(function(){
+          $("#bot4").click(function(){
+            $("ul").before("<li>Item x</li>");
+          });
+        });
+
+        $(document).ready(function(){
+          $("#bot5").click(function(){
+            $("li:last-child").hide();
+          });
+        });
+
+        $(document).ready(function(){
+          $("#bot6").click(function(){
+            $("li:first-child").hide();
+          });
+        });
+    </script>
+</head>
+<body>
+ <ul id="div1">
+     <li>Item 1</li>
+     <li>Item 2</li>
+     <li>Item 3</li>
+     <li>Item 4</li>
+ </ul>
+ <button id="bot1">Hidde</button>
+ <br>
+ <button id="bot2">Show</button>
+ <br>
+ <button id="bot3">Agregar elemento(final)</button>
+ <br>
+ <button id="bot4">Agregar elemento(principio)</button>
+ <br>
+ <button id="bot5">Eliminar ultimo elemento</button>
+ <br>
+ <button id="bot6">Eliminar primer elemento</button>
+ <br>
+</body>
+</html>
