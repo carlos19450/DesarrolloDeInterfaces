@@ -39,14 +39,28 @@
             $("li:first-child").hide();
           });
         });
+
+        $(document).ready(function(){
+            $("#bot7").click(function(){
+                $("li:first-child").hide();
+                $("li:last-child").hide();
+            });
+        });
+
+        $(document).ready(function(){
+            $("#bot8").click(function(){
+                $("#item3").hide();
+                $("#item4").hide();
+            });
+        });
     </script>
 </head>
 <body>
  <ul id="div1">
      <li>Item 1</li>
      <li>Item 2</li>
-     <li>Item 3</li>
-     <li>Item 4</li>
+     <li id="item3">Item 3</li>
+     <li id="item4">Item 4</li>
  </ul>
  <button id="bot1">Hidde</button>
  <br>
@@ -59,6 +73,10 @@
  <button id="bot5">Eliminar ultimo elemento</button>
  <br>
  <button id="bot6">Eliminar primer elemento</button>
+ <br>
+ <button id="bot7">Eliminar primer y segundo elemento</button>
+ <br>
+ <button id="bot8">Eliminar dos ultimos elementos</button>
  <br>
 </body>
 </html>
