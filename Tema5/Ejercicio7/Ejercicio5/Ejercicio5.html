@@ -1,0 +1,85 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Validar Formulario Básico</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <style>
+    label {display: block;}
+    span {color: red;}
+  </style>
+  <script>
+    const formulario = document.getElementById('f');
+    const inputs = document.querySelectorAll('#formulario input');
+
+    const expresiones = {
+      nombre: /^[a-zA-ZÀ-ÿ\s\-\']+$/,
+      numero: /^[0-9]{9}$/,
+      codigoPostal: /^[0-9]{5}$/,
+      correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+    }
+
+    const validarFormulario = (e) => {
+      switch (e.target.name) {
+        case "f1":
+          if (expresiones.soloNumeros.test(e.target.value)) {
+            console.log("Bien");
+          } else {
+            $(document).ready(function(){
+              $("#nombre").click(function(){
+                $("#nombre").css({"backgroundColor": "#ff0000"})
+              });
+            });
+          }
+          break;
+        case "f2":
+          if (expresiones.soloLetrasConTildes.test(e.target.value)) {
+            console.log("Bien");
+          } else {
+            console.log("Error. Solo letras");
+          }
+          break;
+        case "f3":
+          if (expresiones.soloLetrasConEspaciosYtilde.test(e.target.value)) {
+            console.log("Bien");
+          } else {
+            console.log("Error. Solo letras");
+          }
+          break;
+        case "f4":
+          if (expresiones.soloLetrasConEspaciosYtildeAptrofeYguion.test(e.target.value)) {
+            console.log("Bien");
+          } else {
+            console.log("Error. Solo letras");
+          }
+      }
+    }
+
+    inputs.forEach((input) => {
+      input.addEventListener('keyup', validarFormulario);
+      input.addEventListener('blur', validarFormulario);
+    });
+
+    formulario.addEventListener('submit', (e) => {
+    })
+  </script>
+
+</head>
+<body>
+<h1>Formulario de Contacto</h1>
+<form name="formulario" id="f">
+  <label> Nombre:
+    <input type="text" name="nombre" placeholder="Xxxx" />
+  </label>
+  <label>Teléfono:
+    <input type="text" name="tel" placeholder="XXX-XXXXXX" />
+  </label>
+  <label> Código postal:
+    <input type="text" name="cp" placeholder="XXXXX" />
+  </label>
+  <label> Email:
+    <input type="text" name="email" placeholder="xxx@xxxx.xx" />
+  </label>
+  <input type="submit" name="enviar" value="Enviar" />
+</form>
+</body>
+</html>

@@ -21,6 +21,18 @@
                                     "border-width":"5px",
                                     "border-style":"solid"})
             });
+            $("#imagen2").click(function(){
+                $("#imagen1").css("opacity", 0.4) && $("#imagen3").css("opacity", 0.4);
+                $("#imagen2").css({"border-color": "#ff0000",
+                    "border-width":"5px",
+                    "border-style":"solid"})
+            });
+            $("#imagen3").click(function(){
+                $("#imagen2").css("opacity", 0.4) && $("#imagen1").css("opacity", 0.4);
+                $("#imagen3").css({"border-color": "#ff0000",
+                    "border-width":"5px",
+                    "border-style":"solid"})
+            });
         });
     </script>
 </head>

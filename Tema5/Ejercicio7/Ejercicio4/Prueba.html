@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Animación infinita</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <style>
+
+  </style>
+  <script>
+    $(document).ready(function(){
+      $("#boton1").click(function(){
+        $("#paraanimar").animate({margin:"0px"});
+      });
+      $("#boton2").click(function(){
+        $("#paraanimar").animate({margin:"100px"});
+      });
+      $("#boton3").click(function(){
+        $("#paraanimar").animate({marginBottom:"150px"},3000);
+      });
+      $("#boton4").click(function(){
+        $("#paraanimar").animate({marginTop:"150px"},5000,function() {alert ('Efecto terminado!');});
+      });
+      $("#boton5").click(function(){
+        $("#paraanimar").animate({marginLeft:"150px", marginRight:"150px"});
+      });
+    });
+  </script>
+</head>
+<body>
+<p>Texto 1</p>
+<p id="paraanimar">Texo 2 para animar</p>
+<p>Texto 3</p>
+<p>
+  <input type="button" id="boton1" value="Resetear">
+  <input type="button" id="boton2" value="Cambiar a 100px el margen del párrafo">
+  <input type="button" id="boton3" value="Cambiar a 150px el margen inferior del párrafo en 3 segundos">
+  <input type="button" id="boton4" value="Cambiar a 150px el margen superior del párrafo en 5 segundos y callback">
+  <input type="button" id="boton5" value="Cambiar a 150px el margen izquierdo y derecho del párrafo">
+</p>
+</body>
+</html>

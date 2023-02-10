@@ -18,15 +18,37 @@
     /**
      * Función que pinta todos los elementos menos los botones en color rojo
      */
+    $(document).ready(function(){
+      $("#cambiarTodo").click(function(){
+        $("#todo").addClass("rojo")
+      });
+    });
 
     /**
      * Función que pinta el elemento pulsado en color verde
      */
-
+    $(document).ready(function(){
+      $("p").click(function(){
+        $(this).addClass("verde")
+      });
+      $("h1").click(function(){
+        $(this).addClass("verde")
+      });
+      $("h2").click(function(){
+        $(this).addClass("verde")
+      });
+    });
     /**
      * Función que restaura la página eliminando clases asignadas
      */
-
+    $(document).ready(function(){
+      $("#reset").click(function(){
+        $("#todo").removeClass("rojo")
+        $("h1").removeClass("verde")
+        $("h2").removeClass("verde")
+        $("p").removeClass("verde")
+      });
+    });
     /**
      * Inicializa las funciones tras cargar el documento y añade eventos
      * a cada uno de los elementos correspondientes.
@@ -34,10 +56,9 @@
 
   </script>
 </head>
-<body>
+<body id="todo">
 <h1>Este es el título h1 de ejercicio sobre clases con jQuery</h1>
-<h2>Este es un Título
-  h2</h2>
+<h2>Este es un Título h2</h2>
 <div>
   <p>
     Puedes pulsar sobre el siguiente botón para cambiar las clases:

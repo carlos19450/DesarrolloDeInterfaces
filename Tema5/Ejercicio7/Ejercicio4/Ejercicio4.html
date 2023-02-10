@@ -1,0 +1,100 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Animación infinita</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <style>
+    button  {
+      font-size: 15px;
+      padding: 5px;
+    }
+
+    .elementoAnimado {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      background-color: aquamarine;
+      color: black;
+      border-radius: 10px;
+      position: relative;
+      width: 400px;
+      height: 400px;
+      font-size: 0.85rem;
+      animation: infinta 10s alternate infinite linear;
+    }
+
+    .hijoDiv {
+      width: 50px;
+      height: 50px;
+    }
+    @keyframes infinta {
+      0% {
+        top: 100px;
+        left: 40px;
+        -webkit-transform: rotate(0deg);
+      }
+      20% {
+        top: 120px;
+        left: 50px;
+        -webkit-transform: rotate(20deg);
+      }
+      90% {
+        top: 190px;
+        left: 220px;
+        -webkit-transform: rotate(340deg);
+      }
+      100% {
+        top: 200px;
+        left:240px;
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+      $("#bot1").click(function(){
+        $("#padreDiv").animate(".elementoAnimado");
+      });
+    });
+    $(document).ready(function(){
+      $("#bot2").click(function(){
+        $("#div1").hide();
+      });
+    });
+    $(document).ready(function(){
+      $("#bot3").click(function(){
+        $("#div1").hide();
+      });
+    });
+    $(document).ready(function(){
+      $("#bot4").click(function(){
+        $("#div1").hide();
+      });
+    });
+    $(document).ready(function(){
+      $("#bot5").click(function(){
+        $("#div1").hide();
+      });
+    });
+    $(document).ready(function(){
+      $("#bot6x").click(function(){
+        $("#div1").hide();
+      });
+    });
+  </script>
+</head>
+<body>
+<div class="elementoAnimado ">
+  <div class="hijoDiv">
+
+  </div>
+  <button id="bot1">Empezar</button>
+  <button id="bot2">Parar</button>
+  <button id="bot3">Parar todo</button>
+  <button id="bot4">Para y salta a la siguiente</button>
+  <button id="bot5">Parar todo y termina la actual</button>
+  <button id="bot6">Ir al estado final de todas las animaciones</button>
+</div>
+</body>
+</html>
