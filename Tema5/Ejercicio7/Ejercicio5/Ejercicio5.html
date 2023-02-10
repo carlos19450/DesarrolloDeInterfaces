@@ -1,85 +1,56 @@
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Validar Formulario Básico</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <style>
-    label {display: block;}
-    span {color: red;}
-  </style>
-  <script>
-    const formulario = document.getElementById('f');
-    const inputs = document.querySelectorAll('#formulario input');
-
-    const expresiones = {
-      nombre: /^[a-zA-ZÀ-ÿ\s\-\']+$/,
-      numero: /^[0-9]{9}$/,
-      codigoPostal: /^[0-9]{5}$/,
-      correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
-    }
-
-    const validarFormulario = (e) => {
-      switch (e.target.name) {
-        case "f1":
-          if (expresiones.soloNumeros.test(e.target.value)) {
-            console.log("Bien");
-          } else {
-            $(document).ready(function(){
-              $("#nombre").click(function(){
-                $("#nombre").css({"backgroundColor": "#ff0000"})
-              });
+    <meta charset="UTF-8">
+    <title>Validar Formulario Básico</title>
+    <style>
+        label {display: block;}
+        span {color: red;}
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#enviar").click(function(){
+                if ($("#nombre").attr("value").match(/^[a-zA-ZÀ-ÿ\\s\\-\\']+$/)) {
+                    $("#nombre").css({"backgroundColor": "#44ff00"});
+                } else {
+                    $("#nombre").css({"backgroundColor": "#ff0000"});
+                }
+                if ($("#tel").attr("value").match(/^[0-9]{9}$/)) {
+                    $("#tel").css({"backgroundColor": "#44ff00"});
+                } else {
+                    $("#tel").css({"backgroundColor": "#ff0000"});
+                }
+                if ($("#cp").attr("value").match(/^[0-9]{5}$/)) {
+                    $("#cp").css({"backgroundColor": "#44ff00"});
+                } else {
+                    $("#cp").css({"backgroundColor": "#ff0000"});
+                }
+                if ($("#email").attr("value").match(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/)) {
+                    $("#email").css({"backgroundColor": "#44ff00"});
+                } else {
+                    $("#email").css({"backgroundColor": "#ff0000"});
+                }
             });
-          }
-          break;
-        case "f2":
-          if (expresiones.soloLetrasConTildes.test(e.target.value)) {
-            console.log("Bien");
-          } else {
-            console.log("Error. Solo letras");
-          }
-          break;
-        case "f3":
-          if (expresiones.soloLetrasConEspaciosYtilde.test(e.target.value)) {
-            console.log("Bien");
-          } else {
-            console.log("Error. Solo letras");
-          }
-          break;
-        case "f4":
-          if (expresiones.soloLetrasConEspaciosYtildeAptrofeYguion.test(e.target.value)) {
-            console.log("Bien");
-          } else {
-            console.log("Error. Solo letras");
-          }
-      }
-    }
-
-    inputs.forEach((input) => {
-      input.addEventListener('keyup', validarFormulario);
-      input.addEventListener('blur', validarFormulario);
-    });
-
-    formulario.addEventListener('submit', (e) => {
-    })
-  </script>
+        });
+    </script>
 
 </head>
 <body>
 <h1>Formulario de Contacto</h1>
 <form name="formulario" id="f">
-  <label> Nombre:
-    <input type="text" name="nombre" placeholder="Xxxx" />
-  </label>
-  <label>Teléfono:
-    <input type="text" name="tel" placeholder="XXX-XXXXXX" />
-  </label>
-  <label> Código postal:
-    <input type="text" name="cp" placeholder="XXXXX" />
-  </label>
-  <label> Email:
-    <input type="text" name="email" placeholder="xxx@xxxx.xx" />
-  </label>
-  <input type="submit" name="enviar" value="Enviar" />
+    <label> Nombre:
+        <input type="text" id="nombre" name="nombre" required placeholder="Xxxx" />
+    </label>
+    <label>Teléfono:
+        <input type="text" id="tel" name="tel" required placeholder="XXXXXXXXX" />
+    </label>
+    <label> Código postal:
+        <input type="text" id="cp" name="cp" required placeholder="XXXXX" />
+    </label>
+    <label> Email:
+        <input type="text" id="email" name="email" required placeholder="xxx@xxxx.xx" />
+    </label>
+    <input type="submit" id="enviar" name="enviar" value="Enviar" />
 </form>
 </body>
 </html>
