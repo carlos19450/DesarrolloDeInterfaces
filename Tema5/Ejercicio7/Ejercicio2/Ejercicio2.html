@@ -2,28 +2,37 @@
 <head>
     <meta charset="UTF-8" />
     <title>Galería Fotográfica</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <style type="text/css">
         div {
             width: 300px;
             display: inline-block;
+            padding: 20px;
         }
         img {
             width: 100%;
         }
     </style>
-    <script src="./jquery-3.2.1.js">
-
+    <script>
+        $(document).ready(function(){
+            $("#imagen1").click(function(){
+                $("#imagen2").css("opacity", 0.4) && $("#imagen3").css("opacity", 0.4);
+                $("#imagen1").css({"border-color": "#ff0000",
+                                    "border-width":"5px",
+                                    "border-style":"solid"})
+            });
+        });
     </script>
 </head>
 <body>
 <div>
-    <img src="./images/image1.jpg" />
+    <img id="imagen1" src="https://www.nationalgeographic.com.es/medio/2023/01/12/imagen-de-un-atomo_952cc086_230112124807_1280x988.jpg" />
 </div>
 <div>
-    <img src="./images/image2.jpg" />
+    <img id="imagen2" src="https://fotografiamejorparavendermas.com/wp-content/uploads/2017/06/La-importancia-de-la-imagen.jpg" />
 </div>
 <div>
-    <img src="./images/image3.jpg" />
+    <img id="imagen3" src="https://www.pixartprinting.it/blog/wp-content/uploads/2021/06/1_Mona_Lisa_300ppi.jpg" />
 </div>
 </body>
 </html>
