@@ -34,7 +34,12 @@
             }
             arrayFrases.push(frases);
             if (frase != null) {
-                alert(nombre.value + arrayFrases);
+                while (true)
+                    if (arrayFrases[i] != null) {
+                        alert(nombre.value + arrayFrases[i]);
+                        break;
+                    }
+                }
             }
             actualizarCookie();
             rellenarContenido();
