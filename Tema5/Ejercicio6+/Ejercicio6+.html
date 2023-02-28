@@ -6,14 +6,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
         window.onload = init;
-
+        arrayFrases = [];
         function init(){
             botonEnvio = document.querySelector('[type = "submit"]');
             botonEnvio.addEventListener("click", future);
-            const nombre = document.getElementById('f1');
         }
 
         function future() {
+            nombre = document.getElementById('f1');
             let frases = [' ,el cielo sera tu limite, pues grandes acontecimientos te sucederán',
                 ' ,hoy seras reconocido por tus dones especiales y lograras ser feliz por muchas horas',
                 ' ,nunca tendrás que preocuparte por un ingreso estable',
@@ -25,11 +25,24 @@
                 ' ,confía en tu suerte, que es mucha y te rodeara de prosperidad',
                 ' ,hoy es el momento de explorar: no temas'];
             alert("Consultando a los espíritus…");
-            alert(nombre.value + frases[Math.floor(Math.random() * frases.length)]);
-
-
+            for (let i = 0; i < arrayFrases.length; i++) {
+                frase = frases[Math.floor(Math.random() * frases.length)]
+                if (frases.includes(frase)){
+                    frases[i] = frase
+                    frases[i] = null
+                }
+            }
+            arrayFrases.push(frases);
+            if (frase != null) {
+                alert(nombre.value + arrayFrases);
+            }
+            actualizarCookie();
+            rellenarContenido();
         }
-
+        function actualizarCookie(){
+            setCookie("nombre", nombre,7);
+            setCookie("listaFrases", listaFrases,7);
+        }
     </script>
 </head>
 <body>
