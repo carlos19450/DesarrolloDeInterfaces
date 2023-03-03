@@ -1,46 +1,38 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Lista de Items</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script>
-    var xArray = [50,60,70,80,90,100,110,120,130,140,150];
-    var yArray = [7,8,8,9,9,9,10,11,14,14,15];
-
-    // Define Data
-    var data = [{
-      x:xArray,
-      y:yArray,
-      mode:"markers"
-    }];
-
-    // Define Layout
-    var layout = {
-      xaxis: {range: [40, 160], title: "Square Meters"},
-      yaxis: {range: [5, 16], title: "Price in Millions"},
-      title: "House Prices vs. Size"
-    };
-
-    // Display using Plotly
-    Plotly.newPlot("myPlot", data, layout);
-  </script>
+  <title>Registro</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="Registroscript.js"></script>
 </head>
 <body>
 <div id="container">
   <form action="#">
-    <label for="anadir">Nombre:</label>
-    <label for="anadir">Edad:</label>
-    <label for="anadir">Peso:</label>
-    <label for="anadir">Tension arterial :</label>
-    <label for="anadir">Pulsaciones:</label>
-    <input type="text" name="anadir" id="anadir">
-    <input type="button" value="Añadir a la lista">
+    <label for="nombre">Nombre: </label>
+    <input id="nombre" type="text" name="nombre" placeholder="Nombre"><br><br>
+
+    <label for="edad">Edad: </label>
+    <input id="edad" type="number" name="edad" placeholder="0" min="0" max="150"><br><br>
+
+    <label for="peso">Peso: </label>
+    <input id="peso" type="number" name="peso" placeholder="0" min="1"><br><br>
+
+    <label for="sistolica">Tensión Sistólica: </label>
+    <input id="sistolica" type="number" name="tension-sistolica" placeholder="0" min="60"><br><br>
+
+    <label for="diastolica">Tensión Diastólica: </label>
+    <input id="diastolica" type="number" name="tension-diastolica" placeholder="0" min="60"><br><br>
+
+    <label for="pulsacion">Pulsaciones: </label>
+    <input id="pulsacion" type="number" name="pulsacion" placeholder="0" min="60" max="120"><br><br>
+
+    <input id="enviar" type="button" value="Enviar">
   </form>
 
-  <ul id="listaCompra"></ul>
-
-  <p>Nota: Puedes eliminar elementos de la lista haciendo doble click sobre ellos</p>
-  <button id="resetear">Resetear lista y borrarla de la memoria</button>
+  <div id="grafo-tension"></div>
+  <div id="grafo-pulsaciones"></div>
+  <div id="grafo-peso-edad"></div>
 </div>
 </body>
 </html>
