@@ -60,7 +60,7 @@ function grafoTension(cookies) {
         title: "Tensión Sistolica y Diastolica"
     };
 
-    Plotly.newPlot("grafo-tension", data, layout);
+    Plotly.newPlot("grafo_tension", data, layout);
 }
 
 function grafoPulsaciones(cookies) {
@@ -82,7 +82,7 @@ function grafoPulsaciones(cookies) {
         title: "Pulsaciones"
     };
 
-    Plotly.newPlot("grafo-pulsaciones", data, layout);
+    Plotly.newPlot("grafo_pulsaciones", data, layout);
 }
 
 function grafoPesoEdad(cookies) {
@@ -104,7 +104,7 @@ function grafoPesoEdad(cookies) {
         title: "Peso y Edad"
     };
 
-    Plotly.newPlot("grafo-peso-edad", data, layout);
+    Plotly.newPlot("grafo_peso_edad", data, layout);
 }
 
 function comprobarNombre(nombre) {
